@@ -8,6 +8,9 @@ RUN apt-get update -y \
     && apt-get install -y ffmpeg
 COPY ./requirements.txt ./app ./
 RUN python3 -m pip install -r /app/requirements.txt
+
+RUN chgrp -R 0 /app && chmod -R g=u /app
+
 # RUN python3 -m pip install openvino
 EXPOSE 30000
 CMD [ "python3","-u","./run.py" ]
