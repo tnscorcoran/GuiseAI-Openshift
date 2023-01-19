@@ -56,6 +56,10 @@ oc delete all -l app=guise-cmline
    5. Sync policy = automatic
    6. destination url = https://kubernetes.default.svc
    7. namespace = <user2>
+8. Test 
+   1. Delete the app
+   2. oc delete all -l app=guiseai 
+   3. See in Argo cd UI that the components are reployed immediatly
 
 
 
