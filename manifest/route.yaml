@@ -18,7 +18,7 @@ spec:
     termination: edge
   to:
     kind: Service
-    name: guise-ai-openshift
+    name: guiseai
     weight: 100
   wildcardPolicy: None
 
