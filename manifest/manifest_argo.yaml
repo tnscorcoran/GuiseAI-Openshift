@@ -43,7 +43,7 @@ spec:
               type: RuntimeDefault
           ports:
             - name: guiseai
-              containerPort: 30000  #   The image runs on local port - 65432
+              containerPort: 30000  #   The image runs on local port - 30000
               protocol: TCP
           imagePullPolicy: IfNotPresent
           terminationMessagePolicy: File
