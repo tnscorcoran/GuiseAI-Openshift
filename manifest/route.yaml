@@ -7,7 +7,7 @@ metadata:
     app: guiseai
     app.kubernetes.io/instance: argo-guise
     service: guiseai
-  name: guise-ai-openshift
+  name: guise-route
   namespace: user2
 spec:
   host: guise-route-user2.apps.anomaly-cluster.rqdu.p1.openshiftapps.com 
