@@ -1,5 +1,5 @@
 # Deploy on openshift
-oc new-app --name guise-cmline  https://github.com/arslankhanali/GuiseAI-Openshift
+oc new-app --name guise-cmline  https://github.com/arslankhanali/GuiseAI-Openshift  
 oc expose svc guise-cmline
 
 # Tekton
