@@ -10,7 +10,7 @@ metadata:
   name: guise-route
   namespace: user2
 spec:
-  host: guise-route-user2.apps.anomaly-cluster.rqdu.p1.openshiftapps.com 
+  # host: guise-route-user2.apps.anomaly-cluster.rqdu.p1.openshiftapps.com 
   port:
     targetPort: 30000-tcp
   tls:
