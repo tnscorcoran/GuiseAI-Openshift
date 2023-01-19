@@ -1,8 +1,9 @@
 # Deploy on openshift
 oc new-app --name guise-cmline  https://github.com/arslankhanali/GuiseAI-Openshift  
-oc expose svc guise-cmline
-
-# Tekton
+oc expose svc guise-cmlin  
+oc delete all -l app=guise-cmline
+# MLOps
+## Tekton
 1. Install pipeline operator
 2. Create pipeline instance
 3. Create workspace
@@ -37,7 +38,7 @@ oc expose svc guise-cmline
          - name: basic-user-pass
       ```
 
-# Argo cd
+## Argo cd
 1. Build using manifest folder
 2. Install gitops operator
 3. Create argocd instance
