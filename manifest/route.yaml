@@ -6,9 +6,9 @@ metadata:
     openshift.io/host.generated: "true"
   labels:
     app: guiseai
-    app.kubernetes.io/instance: argo-guise
+    app.kubernetes.io/instance: guiseai
     service: guiseai
-  name: guise-route
+  name: guiseai
   namespace: user2
 spec:
   port:
