@@ -1,5 +1,5 @@
-FROM openvino/ubuntu20_runtime
-#FROM docker.io/openvino/ubuntu20_runtime
+#FROM openvino/ubuntu20_runtime
+FROM docker.io/openvino/ubuntu20_runtime
 ENV TZ=Australia/Sydney \
     DEBIAN_FRONTEND=noninteractive
 WORKDIR /app
