@@ -58,11 +58,11 @@ oc delete all -l app=guise-cmline
    7. namespace = <user2>
 8. Test 
    1. Delete the app
-   2. oc delete all -l app=guiseai 
-   3. See in Argo cd UI that the components are redeployed immediatly
-   4. Try with both self heal enabled and disabled.
-      1. With disabled, since service is not deployed, the route deployed will break
-      2. With enabled, route will be exposed automatically once service is up
+      1. oc delete all -l app=guiseai 
+   2. See in Argo cd UI that the components are redeployed immediatly
+   3. Try with both self heal enabled and disabled.
+      1. With disabled, since service is not deployed, the route deployment will break
+      2. With enabled, route will be exposed automatically once the service is up
 
 
 
