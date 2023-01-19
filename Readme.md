@@ -1,11 +1,59 @@
+# Deploy on openshift
+oc new-app --name GuiseAI  https://github.com/arslankhanali/GuiseAI-Openshift
+
+# Tekton
 1. Install pipeline operator
-2. create pipelines
-3. git clone
-   1.  need workspace for storage 
-4. buildah
-   1. need push credentials to quay and annotate it
-   2. https://tekton.dev/docs/pipelines/auth/#configuring-basic-auth-authentication-for-docker
-5.https://raw.githubusercontent.com/kubernetes/website/main/content/en/examples/pods/security/security-context-4.yaml
-https://github.com/aspanner/MicroShift-Controll-Scripts
+2. Create pipeline instance
+3. Create workspace
+   1. workspace = edge-workspace
+4. git clone
+   1.  display name = git-clone
+   2.  url = https://github.com/arslankhanali/GuiseAI-Openshift
+   3.  workspace = edge-workspace
+5. buildah
+   1. display name = buildah
+   2. IMAGE = quay.io/arslankhanali/guise
+   3. workspace = edge-workspace
+6. Create a secret to access quay.io to push to it
+   1. https://tekton.dev/docs/pipelines/auth/#configuring-basic-auth-authentication-for-docker
+   2. ```yaml
+      apiVersion: v1
+      kind: Secret
+      metadata:
+      name: basic-user-pass
+      annotations:
+         tekton.dev/docker-0: https://quay.io # Described below
+      type: kubernetes.io/basic-auth
+      stringData:
+      username: arslankhanali
+      password: <pass>
+      ```
+7. Give service account 'pipeline' access to the secret
+   1. edit yaml
+   2. ```yaml
+      secrets:
+         - name: pipeline-dockercfg-fgppj
+         - name: basic-user-pass
+      ```
+
+# Argo cd
+1. Build using manifest folder
+2. Install gitops operator
+3. Create argocd instance
+4. edit yaml. In line 209
+5. ```yaml
+   rbac:
+      - defaultPolicy: 'role:admin'
+   ```
+6. Login to argo cd using the route
+7. Create a project
+   1. App name = <>
+   2. project = default
+   3. repo url = https://github.com/arslankhanali/GuiseAI-Openshift
+   4. path = manifest
+   5. Sync policy = automatic
+   6. destination url = https://kubernetes.default.svc
+   7. namespace = <user2>
+
 
 
