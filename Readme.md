@@ -65,4 +65,26 @@ oc delete all -l app=guise-cmline
       2. With enabled, route will be exposed automatically once the service is up
 
 
+## ArgoCD - remote cluster
+1. Login to cluster with Argocd installed and get the password for argo cd
+2. ```sh
+   export ARGOCD_PASSWORD=$(oc get secret argocd-cluster -n user2 -o jsonpath='{.data.admin\.password}' | base64 -d)
+   echo $ARGOCD_PASSWORD
+   #Test password by logging in like:-
+      #argocd login argocd-server-user2.apps.anomaly-cluster.rqdu.p1.openshiftapps.com
+      #username: admin
+      #password: $ARGOCD_PASSWORD
+   ```
+3. Login 'as admin' to remote cluster where you want to deploy argocd service account
+4. ```sh
+   argocd login argocd-server-user2.apps.anomaly-cluster.rqdu.p1.openshiftapps.com
+   username: admin
+   password: $ARGOCD_PASSWORD
+
+   kubectl config get-contexts -o name
+   argocd cluster add <>
+   ```
+5. Confirm in argo cd UI settings/clusters that a new cluster has been added
+
+
 
