@@ -9,7 +9,6 @@ metadata:
     app.kubernetes.io/instance: guiseai
     service: guiseai
   name: guiseai
-  namespace: user2
 spec:
   port:
     targetPort: 30000-tcp
