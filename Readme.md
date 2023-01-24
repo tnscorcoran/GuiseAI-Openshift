@@ -68,7 +68,7 @@ oc delete all -l app=guise-cmline
 ## ArgoCD - remote cluster
 1. Login to cluster with Argocd installed and get the password for argo cd
 2. ```sh
-   export ARGOCD_PASSWORD=$(oc get secret argocd-cluster -n user2 -o jsonpath='{.data.admin\.password}' | base64 -d)
+   export ARGOCD_PASSWORD=$(oc get secret <argocd-cluster> -n <user2> -o jsonpath='{.data.admin\.password}' | base64 -d)
    echo $ARGOCD_PASSWORD
 
    # Another way to get password is by UI. Go to secrets. Look for name 'argocd-cluster' (name might be different for you). Type will be Opaque.
@@ -81,7 +81,7 @@ oc delete all -l app=guise-cmline
    ```
 3. Login 'as admin' to remote cluster where you want to deploy argocd service account
 4. ```sh
-   argocd login argocd-server-user2.apps.anomaly-cluster.rqdu.p1.openshiftapps.com
+   argocd login <argocd-server-user2.apps.anomaly-cluster.rqdu.p1.openshiftapps.com>
    username: admin
    password: $ARGOCD_PASSWORD
 
