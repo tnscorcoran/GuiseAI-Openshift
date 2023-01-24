@@ -4,6 +4,7 @@ ENV TZ=Australia/Sydney \
     DEBIAN_FRONTEND=noninteractive
 WORKDIR /app
 
+#USER root
 RUN chmod -R 777 /app
 RUN apt-get update -y \
     && apt-get install -y python3-pip python3-dev \

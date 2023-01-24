@@ -71,7 +71,7 @@ oc delete all -l app=guise-cmline
    export ARGOCD_PASSWORD=$(oc get secret argocd-cluster -n user2 -o jsonpath='{.data.admin\.password}' | base64 -d)
    echo $ARGOCD_PASSWORD
 
-   # Another way to get password is by UI. Go to secrets. Look for name 'argocd-cluster'. Type Opaque.
+   # Another way to get password is by UI. Go to secrets. Look for name 'argocd-cluster' (name might be different for you). Type will be Opaque.
    # View password and copy it
 
    #Test password by logging in like:-
