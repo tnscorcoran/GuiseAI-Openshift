@@ -80,6 +80,7 @@ oc delete all -l app=guise-cmline
       #password: $ARGOCD_PASSWORD
    ```
 3. Login 'as admin' to remote cluster where you want to deploy argocd service account
+> When getting certificate error for RHPDS use '--insecure-skip-tls-verify=true' flag while logging in
 4. ```sh
    argocd login <argocd-server-user2.apps.anomaly-cluster.rqdu.p1.openshiftapps.com>
    username: admin
