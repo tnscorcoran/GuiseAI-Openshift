@@ -70,6 +70,10 @@ oc delete all -l app=guise-cmline
 2. ```sh
    export ARGOCD_PASSWORD=$(oc get secret argocd-cluster -n user2 -o jsonpath='{.data.admin\.password}' | base64 -d)
    echo $ARGOCD_PASSWORD
+
+   # Another way to get password is by UI. Go to secrets. Look for name 'argocd-cluster'. Type Opaque.
+   # View password and copy it
+
    #Test password by logging in like:-
       #argocd login argocd-server-user2.apps.anomaly-cluster.rqdu.p1.openshiftapps.com
       #username: admin
