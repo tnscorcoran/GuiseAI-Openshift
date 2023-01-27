@@ -10,6 +10,7 @@ USER root
 #    && apt-get install -y ffmpeg \
 #    && apt-get install tree
 
+RUN apt-get install tree
 # COPY <file/folder-to-copy> <file/folder-to-copy> <destination>
 # app/ , /app/ and ./app/ will copy all files in 'app' to /guise/ folder. Not app folder itself
 # ./app/ will copy folder 'app' to /guise/ folder
