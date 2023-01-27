@@ -9,12 +9,11 @@ RUN apt-get update -y \
     && apt-get install -y python3-pip python3-dev \
     && apt-get install -y ffmpeg
 
-COPY requirements.txt app/ ./
-RUN tree /guise
+COPY requirements.txt app/ /guise/
 RUN python3 -m pip install -r requirements.txt
 
-RUN chmod -R 777 /guise
-RUN chgrp -R 0 /guise && chmod -R g=u /guise
+RUN chmod -R 777 /guise/
+RUN chgrp -R 0 /guise/ && chmod -R g=u /guise/
 
 # RUN python3 -m pip install openvino
 EXPOSE 30000
