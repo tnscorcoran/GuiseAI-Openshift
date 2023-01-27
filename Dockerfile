@@ -14,7 +14,7 @@ RUN apt-get update -y \
 # app/ will copy all files in 'app' to /guise/ folder
 # /app/ will copy folder 'app' to /guise/ folder
 
-COPY requirements.txt /app/ /guise/
+COPY requirements.txt ./app /guise/
 RUN tree /guise/
 RUN python3 -m pip install -r requirements.txt
 
