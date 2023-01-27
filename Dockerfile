@@ -17,4 +17,4 @@ RUN chgrp -R 0 /guise && chmod -R g=u /guise
 
 # RUN python3 -m pip install openvino
 EXPOSE 30000
-CMD [ "python3","-u","/app/run.py" ]
+CMD [ "python3","-u","/guise/app/run.py" ]
