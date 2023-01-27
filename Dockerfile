@@ -9,7 +9,7 @@ RUN apt-get update -y \
     && apt-get install -y python3-pip python3-dev \
     && apt-get install -y ffmpeg
 
-COPY ./requirements.txt ./app/ ./
+COPY requirements.txt app/ ./
 RUN tree /guise
 RUN python3 -m pip install -r requirements.txt
 
