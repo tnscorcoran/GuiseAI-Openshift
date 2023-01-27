@@ -14,6 +14,7 @@ RUN apt-get update -y \
 # app/ , /app/ , app , ./app/ will copy all files in 'app' to /guise/ folder. Not app folder itself !!!!
 
 COPY requirements.txt app /guise/
+# Tree command to see folder structure
 RUN tree /guise/
 RUN python3 -m pip install -r requirements.txt
 

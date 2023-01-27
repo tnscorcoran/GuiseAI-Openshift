@@ -37,7 +37,8 @@ oc delete all -l app=guise-cmline
          - name: pipeline-dockercfg-fgppj
          - name: basic-user-pass
       ```
-
+8. Start
+   1. Choose VolumeClaimTemplate
 ## Argo cd
 1. Build using manifest folder
 2. Install gitops operator
