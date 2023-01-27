@@ -7,9 +7,11 @@ WORKDIR /guise
 USER root
 RUN apt-get update -y \
     && apt-get install -y python3-pip python3-dev \
-    && apt-get install -y ffmpeg
+    && apt-get install -y ffmpeg \
+    && apt-get install tree
 
 COPY requirements.txt app/ /guise/
+RUN tree /guise/
 RUN python3 -m pip install -r requirements.txt
 
 RUN chmod -R 777 /guise/
