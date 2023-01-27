@@ -5,17 +5,16 @@ ENV TZ=Australia/Sydney \
 WORKDIR /guise
 
 USER root
-# RUN apt-get update -y \
-#    && apt-get install -y python3-pip python3-dev \
-#    && apt-get install -y ffmpeg \
-#    && apt-get install tree
-RUN apt-get update -y && apt-get install tree
+RUN apt-get update -y \
+    && apt-get install -y python3-pip python3-dev \
+    && apt-get install -y ffmpeg \
+    && apt-get install tree
 
 # COPY <file/folder-to-copy> <file/folder-to-copy> <destination>
-# app/ , /app/ and ./app/ will copy all files in 'app' to /guise/ folder. Not app folder itself
+# app/ , /app/ , app , ./app/ will copy all files in 'app' to /guise/ folder. Not app folder itself !!!!
 # ./app/ will copy folder 'app' to /guise/ folder
 
-COPY requirements.txt app /guise/
+COPY ./requirements.txt ./app /guise/
 RUN tree /guise/
 RUN python3 -m pip install -r requirements.txt
 
@@ -24,4 +23,4 @@ RUN chgrp -R 0 /guise/ && chmod -R g=u /guise/
 
 # RUN python3 -m pip install openvino
 EXPOSE 30000
-CMD [ "python3","-u","/guise/app/run.py" ]
+CMD [ "python3","-u","/guise/run.py" ]
