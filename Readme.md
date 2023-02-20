@@ -3,7 +3,10 @@ oc new-app --name guise-cmline  https://github.com/arslankhanali/GuiseAI-Openshi
 oc expose svc guise-cmlin  
 oc delete all -l app=guise-cmline
 # MLOps
+
+
 ## Tekton
+![Tekton pipeline](Pipeline.png)
 1. Install pipeline operator
 2. Create pipeline instance
 3. Create workspace
@@ -94,6 +97,16 @@ oc delete all -l app=guise-cmline
    argocd cluster add <>
    ```
 5. Confirm in argo cd UI settings/clusters that a new cluster has been added
+
+## ArgoCD (argocd-task-sync-and-wait) sync in Tekton
+1. Choose "argocd-task-sync-and-wait" task in pipeline
+   1. application-name = guiseai
+   2. revision = HEAD
+   3. flags = --insecure
+2. Apply 'usage' from https://hub.tekton.dev/tekton/Task/argocd-task-connect-repo/0.1
+   1. I manually added Secret named 'argocd-env-secret'. Give it your argo username and password for admin account.
+   2. Make sure 'argocd-env-configmap' Configmap is created
+   3. It will also create a test 'argocd-pipeline-test' Pipeline. You don't have to use it. Use it to test 
 
 
 
