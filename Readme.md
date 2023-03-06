@@ -70,6 +70,14 @@ oc delete all -l app=guise-cmline
 
 
 ## ArgoCD - remote cluster
+# Download CLI
+``` sh
+curl -sSL -o argocd-linux-amd64 https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
+sudo install -m 555 argocd-linux-amd64 /usr/local/bin/argocd
+rm argocd-linux-amd64
+```
+> https://argo-cd.readthedocs.io/en/stable/getting_started/
+> 
 1. Login to cluster with Argocd installed and get the password for argo cd
 2. ```sh
    export ARGOCD_PASSWORD=$(oc get secret <argocd-cluster> -n <user2> -o jsonpath='{.data.admin\.password}' | base64 -d)
@@ -94,7 +102,7 @@ oc delete all -l app=guise-cmline
    password: $ARGOCD_PASSWORD
 
    kubectl config get-contexts -o name
-   argocd cluster add <>
+   argocd cluster add <context-name-from-previous-cmd>
    ```
 5. Confirm in argo cd UI settings/clusters that a new cluster has been added
 
