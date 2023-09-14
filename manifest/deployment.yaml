@@ -42,7 +42,7 @@ spec:
               protocol: TCP
           imagePullPolicy: IfNotPresent
           terminationMessagePolicy: File
-          image: quay.io/tcorcoran/guise-model
+          image: quay.io/tcorcoran/guise-model2
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
       dnsPolicy: ClusterFirst
